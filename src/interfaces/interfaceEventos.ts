@@ -1,9 +1,12 @@
+// Importa o zod
 import { z } from 'zod';
-import { Usuario } from './interfaceUsuarios';
 
-export const Eventos = z.object({
-    id: z.number(),
+// cria um objeto zod
+export const Evento = z.object({
     nome: z.string(),
     data: z.date(),
-    usuario: Usuario
+    usuario: z.number()
 })
+
+// Cria um tipo
+export type evento = z.infer<typeof Evento>
