@@ -66,7 +66,7 @@ export async function criarTabelaUsuario(){
     CREATE TABLE IF NOT EXISTS usuarios (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     nome TEXT,
-    email TEXT,
+    email TEXT UNIQUE,
     senha TEXT
     )
   `
@@ -443,7 +443,7 @@ export async function logar(email:string, senha:string) {
                     // Aqui também retorna o resultado
                     // acompanhado de uma mensagem que não foi 
                     // possível encontrar o usuário
-                    console.log("Usuário não encontrado")
+                    console.log("Usuário não encontrado!!!\nTentando novamente...")
                     resolve(row)
                     }
                     })
